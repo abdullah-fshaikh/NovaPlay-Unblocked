@@ -1,5 +1,4 @@
-
-const FAVORITES_KEY = 'novaplay_favorites';
+const FAVORITES_KEY = 'terminalplay_favorites';
 
 export const getFavorites = () => {
   const stored = localStorage.getItem(FAVORITES_KEY);

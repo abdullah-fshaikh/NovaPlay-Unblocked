@@ -8,7 +8,7 @@ const HomePage = ({ searchTerm, onGameSelect, showOnlyFavorites = false }) => {
   const [refreshKey, setRefreshKey] = useState(0);
 
   const filteredGames = useMemo(() => {
-    const favorites = JSON.parse(localStorage.getItem('novaplay_favorites') || '[]');
+    const favorites = JSON.parse(localStorage.getItem('terminalplay_favorites') || '[]');
     return GAMES_DATA.filter(game => {
       const matchesSearch = game.title.toLowerCase().includes(searchTerm.toLowerCase());
       const matchesCategory = selectedCategory === GameCategory.ALL || game.category === selectedCategory;

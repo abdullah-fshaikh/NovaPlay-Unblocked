@@ -12,8 +12,8 @@ const Header = ({ onSearch, searchTerm }) => {
         ),
         React.createElement('h1', { 
           className: 'text-3xl font-outfit font-black tracking-tighter glitch', 
-          'data-text': 'NOVAPLAY' 
-        }, 'NOVAPLAY')
+          'data-text': 'TERMINALPLAY' 
+        }, 'TERMINALPLAY')
       ),
       React.createElement('div', { className: 'relative w-full md:w-[450px]' },
         React.createElement('div', { className: 'absolute -inset-0.5 bg-gradient-to-r from-cyan-500 to-pink-500 rounded-full blur opacity-20 group-hover:opacity-40 transition' }),

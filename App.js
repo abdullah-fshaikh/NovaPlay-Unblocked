@@ -63,9 +63,9 @@ const App = () => {
             React.createElement('div', { className: 'w-8 h-8 bg-indigo-600 rounded flex items-center justify-center shadow-lg shadow-indigo-500/50' },
               React.createElement('i', { className: 'fa-solid fa-gamepad text-white text-sm' })
             ),
-            React.createElement('h1', { className: 'text-xl font-outfit font-extrabold tracking-tight' }, 'NOVAPLAY', React.createElement('span', { className: 'text-indigo-500' }, '.'))
+            React.createElement('h1', { className: 'text-xl font-outfit font-extrabold tracking-tight' }, 'TERMINALPLAY', React.createElement('span', { className: 'text-indigo-500' }, '.'))
           ),
-          React.createElement('p', { className: 'text-zinc-500 text-sm' }, 'Unblocked premium gaming destination.')
+          React.createElement('p', { className: 'text-zinc-500 text-sm' }, 'TerminalPlay Unblocked premium gaming destination.')
         ),
         React.createElement('div', { className: 'flex gap-8 text-sm text-zinc-500 font-bold' },
           React.createElement('a', { href: '#/', className: 'hover:text-indigo-400 transition-colors' }, 'EXPLORE'),
