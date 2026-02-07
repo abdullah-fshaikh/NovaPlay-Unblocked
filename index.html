@@ -3,162 +3,150 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>NovaPlay - Unblocked Games</title>
+    <title>NovaPlay - Glitched Edition</title>
     <!-- Favicon -->
-    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 512 512'%3E%3Cpath fill='%236366f1' d='M0 256a256 256 0 1 1 512 0A256 256 0 1 1 0 256zM188.3 147.1c-7.6 4.2-12.3 12.3-12.3 20.9l0 32-32 0c-8.7 0-16.7 4.7-20.9 12.3s-4.2 16.8 0 24.4s12.3 12.3 20.9 12.3l32 0 0 32c0 8.7 4.7 16.7 12.3 20.9s16.8 4.2 24.4 0s12.3-12.3 12.3-20.9l0-32 32 0c8.7 0 16.7-4.7 20.9-12.3s4.2-16.8 0-24.4s-12.3-12.3-20.9-12.3l-32 0 0-32c0-8.7-4.7-16.7-12.3-20.9s-16.8-4.2-24.4 0zM352 208a32 32 0 1 0 0-64 32 32 0 1 0 0 64zm-32 96a32 32 0 1 0 0-64 32 32 0 1 0 0 64zm64 0a32 32 0 1 0 0-64 32 32 0 1 0 0 64zm-32 96a32 32 0 1 0 0-64 32 32 0 1 0 0 64z'/%3E%3C/svg%3E">
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 512 512'%3E%3Cpath fill='%23ff00ff' d='M0 256a256 256 0 1 1 512 0A256 256 0 1 1 0 256zM188.3 147.1c-7.6 4.2-12.3 12.3-12.3 20.9l0 32-32 0c-8.7 0-16.7 4.7-20.9 12.3s-4.2 16.8 0 24.4s12.3 12.3 20.9 12.3l32 0 0 32c0 8.7 4.7 16.7 12.3 20.9s16.8 4.2 24.4 0s12.3-12.3 12.3-20.9l0-32 32 0c8.7 0 16.7-4.7 20.9-12.3s4.2-16.8 0-24.4s-12.3-12.3-20.9-12.3l-32 0 0-32c0-8.7-4.7-16.7-12.3-20.9s-16.8-4.2-24.4 0zM352 208a32 32 0 1 0 0-64 32 32 0 1 0 0 64zm-32 96a32 32 0 1 0 0-64 32 32 0 1 0 0 64zm64 0a32 32 0 1 0 0-64 32 32 0 1 0 0 64zm-32 96a32 32 0 1 0 0-64 32 32 0 1 0 0 64z'/%3E%3C/svg%3E">
     
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Outfit:wght@500;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Outfit:wght@500;600;700;800&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
     <style>
         :root {
-            --bg-color: #050507;
-            --accent-color: #6366f1;
-            --secondary-accent: #8b5cf6;
+            --bg-color: #030305;
+            --neon-pink: #ff00ff;
+            --neon-cyan: #00f3ff;
+            --neon-purple: #bc13fe;
         }
         body {
             font-family: 'Inter', sans-serif;
             background-color: var(--bg-color);
+            color: #fff;
             overflow-x: hidden;
         }
-        h1, h2, h3, .font-outfit {
-            font-family: 'Outfit', sans-serif;
+        h1, h2, h3, .font-outfit { font-family: 'Outfit', sans-serif; }
+        .font-mono { font-family: 'Space Mono', monospace; }
+
+        /* CRT Overlay */
+        body::before {
+            content: " ";
+            display: block;
+            position: fixed;
+            top: 0; left: 0; bottom: 0; right: 0;
+            background: linear-gradient(rgba(18, 16, 16, 0) 50%, rgba(0, 0, 0, 0.25) 50%), 
+                        linear-gradient(90deg, rgba(255, 0, 0, 0.06), rgba(0, 255, 0, 0.02), rgba(0, 0, 255, 0.06));
+            z-index: 9999;
+            background-size: 100% 2px, 3px 100%;
+            pointer-events: none;
         }
 
-        /* Animated Mesh Background */
+        /* Animated Background */
         .gaming-bg {
             position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
+            top: 0; left: 0; width: 100%; height: 100%;
             z-index: -1;
-            background: var(--bg-color);
+            background: #000;
             overflow: hidden;
+        }
+
+        .scanline {
+            width: 100%; height: 100px;
+            z-index: -1;
+            background: linear-gradient(0deg, rgba(0, 0, 0, 0) 0%, rgba(255, 0, 255, 0.1) 50%, rgba(0, 0, 0, 0) 100%);
+            opacity: 0.1;
+            position: absolute;
+            bottom: 100%;
+            animation: scanline 6s linear infinite;
+        }
+
+        @keyframes scanline {
+            0% { bottom: 100%; }
+            100% { bottom: -100px; }
         }
 
         .bg-blob {
             position: absolute;
-            width: 600px;
-            height: 600px;
+            width: 800px; height: 800px;
             border-radius: 50%;
-            filter: blur(80px);
-            opacity: 0.15;
-            z-index: -1;
-            animation: float 20s infinite alternate;
+            filter: blur(120px);
+            opacity: 0.2;
+            animation: float 25s infinite alternate ease-in-out;
         }
-
-        .blob-1 {
-            background: var(--accent-color);
-            top: -10%;
-            left: -10%;
-        }
-
-        .blob-2 {
-            background: var(--secondary-accent);
-            bottom: -10%;
-            right: -10%;
-            animation-delay: -5s;
-            animation-duration: 25s;
-        }
-
-        .blob-3 {
-            background: #4f46e5;
-            top: 40%;
-            left: 50%;
-            width: 400px;
-            height: 400px;
-            animation-delay: -10s;
-            animation-duration: 18s;
-        }
+        .blob-1 { background: var(--neon-pink); top: -20%; left: -20%; }
+        .blob-2 { background: var(--neon-cyan); bottom: -20%; right: -20%; animation-delay: -7s; }
+        .blob-3 { background: var(--neon-purple); top: 30%; left: 40%; width: 500px; height: 500px; animation-delay: -12s; }
 
         @keyframes float {
-            0% { transform: translate(0, 0) scale(1); }
-            33% { transform: translate(100px, 50px) scale(1.1); }
-            66% { transform: translate(-50px, 100px) scale(0.9); }
-            100% { transform: translate(0, 0) scale(1); }
+            0% { transform: translate(0, 0) scale(1) rotate(0deg); }
+            50% { transform: translate(100px, 150px) scale(1.2) rotate(180deg); }
+            100% { transform: translate(-50px, -50px) scale(0.9) rotate(360deg); }
         }
 
-        .gaming-bg::after {
-            content: "";
+        /* Glitch Animation */
+        .glitch {
+            position: relative;
+        }
+        .glitch::before, .glitch::after {
+            content: attr(data-text);
             position: absolute;
-            inset: 0;
-            background-image: linear-gradient(rgba(18, 16, 16, 0) 50%, rgba(0, 0, 0, 0.2) 50%), 
-                              linear-gradient(90deg, rgba(255, 0, 0, 0.02), rgba(0, 255, 0, 0.01), rgba(0, 0, 255, 0.02));
-            background-size: 100% 4px, 3px 100%;
-            pointer-events: none;
+            top: 0; left: 0; width: 100%; height: 100%;
+            opacity: 0.8;
         }
-
-        /* Subtle moving grid */
-        .grid-overlay {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 200%;
-            height: 200%;
-            background-image: linear-gradient(rgba(99, 102, 241, 0.05) 1px, transparent 1px),
-                              linear-gradient(90deg, rgba(99, 102, 241, 0.05) 1px, transparent 1px);
-            background-size: 60px 60px;
-            transform: perspective(500px) rotateX(60deg);
-            transform-origin: top;
-            animation: grid-move 40s linear infinite;
+        .glitch::before {
+            color: var(--neon-cyan);
             z-index: -1;
-            opacity: 0.3;
+            animation: glitch-anim 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94) both infinite;
+        }
+        .glitch::after {
+            color: var(--neon-pink);
+            z-index: -2;
+            animation: glitch-anim-2 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94) reverse both infinite;
         }
 
-        @keyframes grid-move {
-            from { transform: perspective(500px) rotateX(60deg) translateY(0); }
-            to { transform: perspective(500px) rotateX(60deg) translateY(-60px); }
+        @keyframes glitch-anim {
+            0% { transform: translate(0); }
+            20% { transform: translate(-2px, 2px); }
+            40% { transform: translate(-2px, -2px); }
+            60% { transform: translate(2px, 2px); }
+            80% { transform: translate(2px, -2px); }
+            100% { transform: translate(0); }
+        }
+        @keyframes glitch-anim-2 {
+            0% { transform: translate(0); }
+            20% { transform: translate(2px, -2px); }
+            40% { transform: translate(2px, 2px); }
+            60% { transform: translate(-2px, -2px); }
+            80% { transform: translate(-2px, 2px); }
+            100% { transform: translate(0); }
         }
 
-        /* Hover Glow Effect */
-        .game-card-glow {
-            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        /* Neon Glows */
+        .neon-border {
+            box-shadow: 0 0 5px var(--neon-pink), inset 0 0 5px var(--neon-pink);
+            border: 1px solid var(--neon-pink);
         }
-        .game-card-glow:hover {
-            box-shadow: 0 0 30px rgba(99, 102, 241, 0.4);
-            border-color: rgba(99, 102, 241, 0.8);
+        .neon-border-cyan {
+            box-shadow: 0 0 5px var(--neon-cyan), inset 0 0 5px var(--neon-cyan);
+            border: 1px solid var(--neon-cyan);
         }
+        .neon-text-pink { text-shadow: 0 0 8px var(--neon-pink); }
+        .neon-text-cyan { text-shadow: 0 0 8px var(--neon-cyan); }
 
-        /* Page Transitions */
-        @keyframes fadeInUp {
-            from { opacity: 0; transform: translateY(20px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
-        .animate-fade-in {
-            animation: fadeInUp 0.6s ease-out forwards;
-        }
-
-        /* Loading Spinner */
+        /* Loader */
         .loader-pulse {
-            width: 48px;
-            height: 48px;
-            border: 5px solid rgba(255, 255, 255, 0.1);
-            border-bottom-color: var(--accent-color);
+            width: 60px; height: 60px;
+            border: 4px solid var(--neon-cyan);
+            border-top-color: transparent;
+            border-bottom-color: var(--neon-pink);
             border-radius: 50%;
-            display: inline-block;
-            box-sizing: border-box;
-            animation: rotation 1s linear infinite;
+            animation: spin 0.8s linear infinite;
+            filter: drop-shadow(0 0 10px var(--neon-cyan));
         }
+        @keyframes spin { 100% { transform: rotate(360deg); } }
 
-        @keyframes rotation {
-            0% { transform: rotate(0deg); }
-            100% { transform: rotate(360deg); }
-        }
-
-        ::-webkit-scrollbar {
-            width: 8px;
-        }
-        ::-webkit-scrollbar-track {
-            background: #09090b;
-        }
-        ::-webkit-scrollbar-thumb {
-            background: #312e81;
-            border-radius: 10px;
-        }
-        ::-webkit-scrollbar-thumb:hover {
-            background: #4338ca;
-        }
+        ::-webkit-scrollbar { width: 6px; }
+        ::-webkit-scrollbar-track { background: #000; }
+        ::-webkit-scrollbar-thumb { background: var(--neon-pink); border-radius: 0; }
+        ::-webkit-scrollbar-thumb:hover { background: var(--neon-cyan); }
     </style>
 <script type="importmap">
 {
@@ -172,7 +160,7 @@
 </head>
 <body class="text-zinc-100">
     <div class="gaming-bg">
-        <div class="grid-overlay"></div>
+        <div class="scanline"></div>
         <div class="bg-blob blob-1"></div>
         <div class="bg-blob blob-2"></div>
         <div class="bg-blob blob-3"></div>
